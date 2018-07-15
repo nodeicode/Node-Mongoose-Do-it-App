@@ -1,0 +1,1 @@
+//connect to mongo and start up the ports

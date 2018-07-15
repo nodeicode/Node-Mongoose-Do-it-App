@@ -1,0 +1,1 @@
+//requiring all app dependencies and configuring middleware
