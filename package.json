@@ -1,0 +1,19 @@
+{
+  "name": "doit",
+  "version": "1.0.0",
+  "description": "Basic Oauth app with diff authentication with passport and including a full admin contol page",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodeicode/Node-Mongoose-Do-it-App.git"
+  },
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nodeicode/Node-Mongoose-Do-it-App/issues"
+  },
+  "homepage": "https://github.com/nodeicode/Node-Mongoose-Do-it-App#readme"
+}
