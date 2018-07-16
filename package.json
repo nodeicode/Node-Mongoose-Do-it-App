@@ -4,7 +4,10 @@
   "description": "Basic Oauth app with diff authentication with passport and including a full admin contol page",
   "main": "app.js",
   "scripts": {
-    "test": "npm start"
+    "start": "node start.js",
+    "build": "webpack --config webpack.config.js",
+    "webpack": "./node_modules/.bin/webpack-dev-server",
+    "make":  "npm run start "
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,12 @@
   "homepage": "https://github.com/nodeicode/Node-Mongoose-Do-it-App#readme",
   "dependencies": {
     "axios": "0.15.3",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
+    "bulma": "^0.7.1",
+    "concurrently": "^3.6.0",
     "connect-flash": "0.1.1",
     "connect-mongo": "1.3.2",
     "cookie-parser": "1.4.3",
@@ -37,7 +45,7 @@
     "juice": "^4.3.1",
     "md5": "2.2.1",
     "moment": "^2.22.2",
-    "mongoose": "4.8.7",
+    "mongoose": "^5.2.3",
     "mongoose-mongodb-errors": "0.0.2",
     "multer": "1.3.0",
     "nodemailer": "3.1.5",
@@ -48,6 +56,14 @@
     "raven": "^2.2.1",
     "slugs": "0.1.3",
     "uuid": "3.0.1",
-    "validator": "7.0.0"
+    "validator": "7.0.0",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "style-loader": "^0.21.0"
   }
 }
