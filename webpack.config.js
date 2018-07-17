@@ -1,6 +1,6 @@
 const webpack  = require('webpack');
 const path  = require('path');
-const ExtractPlugin = require('extract-text-webpack-plugin');
+const ExtractPlugin = require('mini-css-extract-plugin');
 
 var javascript = {
     test:/\.js$/,
@@ -11,14 +11,17 @@ var javascript = {
 };
 
 var styles = {
-    test:/\.scss$/,
+    test:/\.sass$/,
     enforce:"pre",
-    exclude: /node-modules/,
-    use:    ExtractPlugin.extract( ['css-loader?sourceMap','sass-loader?sourceMap'])
+    use: [ExtractPlugin.loader,
+    'css-loader',
+    'sass-loader'
+    ]
 };
 
 const config = {
-    entry:{App:'./  /.js'},
+    entry:{App:'./public/styles/bulma.sass'},
+    mode:'development',
 
         output:{
             path:path.resolve(__dirname,'public','dist'),
@@ -29,19 +32,23 @@ const config = {
         devServer:{
             contentBase: path.join(__dirname, 'dist'),
              compress: true,
+             watchContentBase:true,
              port: 3000,
              inline:true,
-             watchContentBase:true
+            overlay:{warnings:true,errors:true}
         },
 
         devtool:"source-map",
 
         module: {
-                rules:[javascript,styles]
+                rules:[styles]
         },
 
             plugins:[
-                new ExtractPlugin('styles.css')
+                new ExtractPlugin({
+                    filename:"[name].css",
+                    chunkFilename:"[id].bundle.css"
+                })
             ]
 
     };
