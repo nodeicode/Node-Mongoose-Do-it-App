@@ -1,0 +1,10 @@
+
+/*Build a CSS Grid*/
+html, body{
+height:100%;
+width:auto;
+  }
+body{
+    background: url('/images/background-1.jpg') no-repeat;
+    background-size: cover;
+}
