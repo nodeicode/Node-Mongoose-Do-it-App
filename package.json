@@ -7,7 +7,7 @@
     "start": "nodemon start.js",
     "build": "webpack --config webpack.config.js",
     "webpack": "webpack-dev-server",
-    "make": "concurrently \"npm run start\" \"npm run webpack\" \"webpack\" "
+    "make": "concurrently \"npm run start\" \"webpack\"  "
   },
   "repository": {
     "type": "git",
