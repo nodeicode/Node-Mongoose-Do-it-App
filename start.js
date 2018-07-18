@@ -3,5 +3,6 @@ const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const express = require('express')
 const app = require('./app')
+require('dotenv').config({path:'.env'})
 
-const server = app.listen(3000,()=>{console.log("EXPRESS PORT RUNNING AT -> 3000")})
+const server = app.listen(process.env.PORT,()=>{console.log("EXPRESS PORT RUNNING AT ->"+process.env.PORT)})
