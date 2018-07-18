@@ -1,0 +1,1 @@
+//use expres-validator and create a function to validate regster forms and login requests
