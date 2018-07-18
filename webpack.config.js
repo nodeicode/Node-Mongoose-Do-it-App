@@ -20,7 +20,7 @@ var styles = {
 };
 
 const config = {
-    entry:{App:'./public/styles/bulma.sass'},
+    entry:{App:'./node_modules/bulma/bulma.sass'},
     mode:'development',
 
         output:{
