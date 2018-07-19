@@ -8,8 +8,10 @@ body{
     background: url('/images/background.png') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
+    display: grid;
+    grid: 200px auto/200px repeat(2,1fr) 200px;
 }
 .form{
-  height:auto;
-  width:300px;
+  grid-row: 2;
+  grid-column: 2/3;
 }
