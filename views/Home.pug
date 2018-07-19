@@ -9,19 +9,23 @@ html(lang="en")
         link(rel='stylesheet',href='/styles/bulma.css')
 
     body
-        div(class="form")
-
-            label(class="label") Name
-            div(class="control")
-                input(class="input" type="text" placeholder="Tell Us Ur Name!")
-
-            label(class="label") Email
-            div(class="control")
-                input(class="input" type="email" placeholder="Tell Us Ur Email :)")//add Icons for User Name and passowrd fields
-
-            label(class="label") Password
+        div(class="form" action="/register" method="POST")
+            div(class="field")
+                label(class="label") Name
+                    div(class="control")
+                        input(class="input" type="text" placeholder="Tell Us Ur Name!")
+            div(class="field")
+                label(class="label") Email
+                    div(class="control")
+                        input(class="input" type="email" placeholder="Tell Us Ur Email :)")
+            div(class="field")
+                label(class="label") Password
+                    div(class="control")
+                        input(class="input" type="password" placeholder="Now put a Password to Ur Profile :]")
+            div(class="feild ")
                 div(class="control")
-                    input(class="input" type="password" placeholder="Now put a Password to Ur Profile :]")
+                    button(class="button is-link right-side" type="Submit") Submit!
+
 
 
 
