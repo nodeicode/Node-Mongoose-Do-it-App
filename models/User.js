@@ -22,7 +22,7 @@ var UserSchema = new mongoose.Schema({
     },
 })
 
-UserSchema.plugin(mongooseLocal,{usernameFeild:'email'})
+UserSchema.plugin(mongooseLocal,{usernameField:'email'})
 UserSchema.plugin(errorhandler)
 
 

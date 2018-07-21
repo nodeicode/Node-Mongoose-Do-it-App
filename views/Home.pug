@@ -9,19 +9,19 @@ html(lang="en")
         link(rel='stylesheet',href='/styles/bulma.css')
 
     body
-        form(class="form" action="/" method="POST")
+        form(class="form" action="/register" method="POST")
             div(class="field")
-                label(class="label") Name
+                label(class="label" for="name") Name
                     div(class="control")
-                        input(class="input" type="text" for="name" placeholder="Tell Us Ur Name!")
+                        input(class="input" type="text"  name="name" placeholder="Tell Us Ur Name!")
             div(class="field")
                 label(class="label") Email
-                    div(class="control")
-                        input(class="input" type="email" for="email" placeholder="Tell Us Ur Email :)")
+                    div(class="control" for="email")
+                        input(class="input" type="email"  name="email" placeholder="Tell Us Ur Email :)")
             div(class="field")
-                label(class="label") Password
+                label(class="label"  for="password") Password
                     div(class="control")
-                        input(class="input" type="password"  for="password" placeholder="Now put a Password to Ur Profile :]")
+                        input(class="input" type="password"  name="password" placeholder="Now put a Password to Ur Profile :]")
             div(class="feild ")
                 div(class="control")
                     input(class=" button is-link right-side" type="submit" value="Submit !")
