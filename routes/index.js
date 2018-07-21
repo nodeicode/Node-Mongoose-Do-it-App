@@ -7,6 +7,9 @@ router.get('/',(req,res)=>{
     res.render('../views/Home.pug')
 })
 
-router.post('/',controller.registerNlogin)
+router.post('/register',controller.validateRegister,controller.register,controller.login)
+
+router.get('/account',controller.account)
+
 
 module.exports = router
