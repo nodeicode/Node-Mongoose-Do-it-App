@@ -1,9 +1,8 @@
-<!DOCTYPE html>
+doctype html
+include mixins/flashes
 html(lang="en")
     head
-        meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Doo iT !!!
         link(rel='stylesheet', href='/dist/App.css')
         link(rel='stylesheet',href='/styles/bulma.css')
@@ -15,8 +14,8 @@ html(lang="en")
                     div(class="control")
                         input(class="input" type="text"  name="name" placeholder="Tell Us Ur Name!")
             div(class="field")
-                label(class="label") Email
-                    div(class="control" for="email")
+                label(class="label" for="email") Email
+                    div(class="control")
                         input(class="input" type="email"  name="email" placeholder="Tell Us Ur Email :)")
             div(class="field")
                 label(class="label"  for="password") Password
@@ -25,6 +24,8 @@ html(lang="en")
             div(class="feild ")
                 div(class="control")
                     input(class=" button is-link right-side" type="submit" value="Submit !")
+
+        +flashes()
 
 
 
