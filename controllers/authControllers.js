@@ -4,25 +4,31 @@ const User = mongoose.model('User')
 const promisify = require('es6-promisify')
 const passport = require('passport')
 
+exports.home = (req,res)=>{
+    res.render('Home')
+}
+
 exports.validateRegister = (req,res,next)=>{
 req.sanitizeBody('name')
 req.checkBody('name','We need Your Name!').notEmpty()
-req.checkBody('email').isEmail()
+req.checkBody('email','That email is invalid!').isEmail()
 req.sanitizeBody('email').normalizeEmail({
     gmail_remove_subaddress:false,
+    remove_extension:false,
     gmail_remove_dots:false,
 })
-req.checkBody('password').notEmpty()
-var errors  = req.validationErrors()
-if(errors){req.flash('error',errors)
+req.checkBody('password','Where is ur password?').notEmpty()
+const  errors  = req.validationErrors()
+if(errors){
+req.flash('error',errors.map(err => err.msg))
+res.render('Home',  {body:req.body,flashes:req.flash()})
 return
 }
 next()
 }
 
 exports.register= async (req,res,next) =>  {
-const user  = new User({email:req.body.email,name:req.body.name})
-console.log(req.body.name)
+var user  = new User({email:req.body.email,name:req.body.name})
 var register = promisify(User.register,User)
 await register(user,req.body.password)
 next()
@@ -32,8 +38,16 @@ exports.login = passport.authenticate('local',{
         failureRedirect:'/',
         failureFlash:'Failed Login Try Again!',
         successRedirect:'/account',
-        successFlash:'Loggin In !!'
+        successFlash:'Logged In !!'
     })
+
+exports.isLogged = (req,res,next)=>{
+    if(req.isAuthenticated()){
+    next()
+    return}
+req.flash('error','Looks like ur not logged in plz log in !')
+res.redirect('/')
+}
 
 exports.account = (req,res)=>{
 res.render('../views/acc.pug')
