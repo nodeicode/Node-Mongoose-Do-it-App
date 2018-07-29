@@ -1,15 +1,14 @@
 const express = require('express')
 const router  = express.Router()
 const controller  = require('../controllers/authControllers')
+const {catchErrors} = require('../handlers/catcErrors')
 //for params use router.param@)
 
-router.get('/',(req,res)=>{
-    res.render('../views/Home.pug')
-})
+router.get('/',controller.home)
 
-router.post('/register',controller.validateRegister,controller.register,controller.login)
+router.post('/register',controller.validateRegister,catchErrors(controller.register),controller.login)
 
-router.get('/account',controller.account)
+router.get('/account',controller.isLogged,controller.account)
 
 
 module.exports = router
