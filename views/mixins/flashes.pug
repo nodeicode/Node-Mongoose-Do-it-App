@@ -1,0 +1,7 @@
+mixin flashes()
+    if locals.flashes
+        - const  keys = Object.keys(locals.flashes);
+        each key in keys
+            each flash in locals.flashes[key]
+                div(class=`notification is-${key}`) #{flash}
+                    button(class="delete" onClick="this.parentElement.remove()")
