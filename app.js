@@ -2,7 +2,7 @@
 const express = require('express')
 const session = require('express-session')
 const routes = require('./routes/index.js')
-const  validator = require('express-validator')
+const validator = require('express-validator')
 const flash = require('connect-flash')
 const Parser = require('cookie-parser')
 const path = require('path')
@@ -39,6 +39,8 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+
 
 app.use((req,res,next)=>{
   req.login = promisify(req.login,req)
