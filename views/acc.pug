@@ -1,5 +1,11 @@
 include mixins/flashes
-h1 Logged in
-h1 Welcome
-h1(value=user.name)
-+flashes()
+include mixins/head
+doctype html
+html(lang="en")
+    head
+        +head()
+        h1 Logged in
+
+    body
+        h1 #{user.name}
+        +flashes()

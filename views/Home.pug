@@ -1,31 +1,30 @@
 doctype html
 include mixins/flashes
+include mixins/head
 html(lang="en")
     head
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Doo iT !!!
-        link(rel='stylesheet', href='/dist/App.css')
         link(rel='stylesheet',href='/styles/bulma.css')
+        +head()
 
     body
+        +flashes()
         form(class="form" action="/register" method="POST")
             div(class="field")
-                label(class="label" for="name") Name
+                label(class="label" for="name") Name😎
                     div(class="control")
                         input(class="input" type="text"  name="name" placeholder="Tell Us Ur Name!")
             div(class="field")
-                label(class="label" for="email") Email
+                label(class="label" for="email" required)  Email👨‍💻
                     div(class="control")
                         input(class="input" type="email"  name="email" placeholder="Tell Us Ur Email :)")
             div(class="field")
-                label(class="label"  for="password") Password
+                label(class="label"  for="password" required) Password👓
                     div(class="control")
                         input(class="input" type="password"  name="password" placeholder="Now put a Password to Ur Profile :]")
-            div(class="feild ")
+            div(class="field ")
                 div(class="control")
-                    input(class=" button is-link right-side" type="submit" value="Submit !")
+                    input(class=" button is-link right-side" type="submit" value="Submit✔")
 
-        +flashes()
 
 
 
