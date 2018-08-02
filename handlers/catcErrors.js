@@ -15,7 +15,7 @@ exports.ntFnd = (req,res,next)=>{
 //flash errors
 exports.flashes = (err,req,res,next)=>{
     if(!err)return next
-    req.flash(err)
+    req.flash('error',err)
     console.log(err)
-    res.redirect('/')
+    res.render('Home',{body:req.body,flashes:req.flash()})
 }
