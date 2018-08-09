@@ -4,11 +4,12 @@ include mixins/head
 html(lang="en")
     head
         link(rel='stylesheet',href='/styles/bulma.css')
+        script(src='/anima.js' )
         +head()
 
     body
         +flashes()
-        form(class="form" action="/register" method="POST")
+        form(class="form" id="register" action="/register" method="POST")
             div(class="field")
                 label(class="label" for="name") Name😎
                     div(class="control")
@@ -23,9 +24,19 @@ html(lang="en")
                         input(class="input" type="password"  name="password" placeholder="Now put a Password to Ur Profile :]")
             div(class="field ")
                 div(class="control")
-                    input(class=" button is-link right-side" type="submit" value="Submit✔")
+                    input(class=" button is-link is-fullwidth"  type="submit" value="Submit✔")
+            a(class="button" onclick="fadeleft()") Log In 🤜
 
-
-
-
-
+        form(class="form" id="login" action="/login" method="POST")
+            div(class="field")
+                label(class="label" for="email" required)  Email👨‍💻
+                    div(class="control")
+                        input(class="input" type="email"  name="email" placeholder="Tell Us Ur Email 😊")
+            div(class="field")
+                label(class="label"  for="password" required) Password👓
+                    div(class="control")
+                        input(class="input" type="password"  name="password" placeholder="Tell Us Ur Password 🤨")
+            div(class="field ")
+                div(class="control")
+                    input(class=" button is-link is-fullwidth " type="submit" value="Login ✨")
+            a(class="button" onclick="faderight()") Sign In 👍
