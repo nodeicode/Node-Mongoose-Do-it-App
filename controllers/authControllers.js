@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const passport = require("passport");
 const bcrypt = require("bcrypt");
-const validator = require("validator");
+
 
 exports.home = (req, res) => {
   res.render("Home");
@@ -36,15 +36,15 @@ exports.register = async (req, res, next) => {
     password: bcrypt.hashSync(req.body.password, 10)
   });
   await user.save();
-  console.log("registered!!")
+  console.log("registered!!");
   next();
 };
 
-exports.login = passport.authenticate("local", {
-  failureRedirect: "/",
-  failureFlash: "Failed Login Try Again!",
-  successRedirect: "/account",
-  successFlash: "Logged In !!👌"
+exports.login = passport.authenticate('local', {
+  failureRedirect: '/',
+  failureFlash: 'Failed Login Try Again!',
+  successRedirect: '/account',
+  successFlash: 'Logged In !!👌'
 });
 
 exports.isLogged = (req, res, next) => {
